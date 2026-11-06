@@ -1,21 +1,5 @@
-WEB OFICIAL KAEL THE NEW CODE
+KAEL THE NEW CODE — WEB CON FOTO CORRECTA
 
-1. Coloca tus fotografías ORIGINALES en la carpeta assets con estos nombres exactos:
-   kael-portada.jpg        (foto horizontal para la portada principal)
-   kael-retrato.jpg        (foto vertical para biografía)
-   quedate-un-rato-mas.jpg (portada del sencillo)
-   te-llevo-conmigo.jpg    (portada del sencillo)
-   proximo-estreno.jpg     (imagen opcional)
+Sube index.html y la carpeta assets/ al nivel principal de tu repositorio GitHub. Reemplaza index.html y los dos archivos .webp existentes. GitHub Pages: main / (root).
 
-Si aún no agregas fotos, la web mostrará fondos de diseño negro/borgoña con letra K. No se han alterado tus fotografías.
-
-2. Abre index.html con Chrome para revisar el diseño.
-
-3. Para publicar gratis en GitHub Pages:
-   - Crea una cuenta en github.com
-   - Crea un repositorio público llamado TUUSUARIO.github.io (sustituye TUUSUARIO por tu nombre de usuario exacto)
-   - Sube index.html y la carpeta assets con las fotos.
-   - En Settings > Pages, elige Deploy from a branch, rama main, carpeta /(root) y Save.
-   - Tu web aparecerá en https://TUUSUARIO.github.io/ (puede tardar unos minutos).
-
-4. Actualiza enlaces de Spotify, TikTok, correo y próximos estrenos cuando los tengas. El sitio no necesita pago ni servidor.
+Esta versión utiliza exactamente la fotografía que enviaste, sin generar otro rostro.
