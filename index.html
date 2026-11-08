@@ -199,4 +199,45 @@ document.addEventListener('click',function(event){
   update();
   if(Date.now()<launchTime)interval=setInterval(update,1000);
 })();
-</script></body></html>
+</script>
+<script id="kael-interaction-analytics">
+/* Eventos propios de KAEL. No se envian datos personales. */
+(function () {
+  function report(eventName, details) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, details);
+  }
+  document.addEventListener('click', function (event) {
+    const control = event.target.closest('a[href], button.video-play, button.spotify-load');
+    if (!control) return;
+    if (control.matches('button.video-play')) {
+      const title = control.getAttribute('aria-label') || 'Videoclip';
+      report('kael_video_open', { platform: 'youtube', content_title: title, interaction_type: 'embed_open' });
+      return;
+    }
+    if (control.matches('button.spotify-load')) {
+      report('kael_spotify_open', { platform: 'spotify', interaction_type: 'embed_open' });
+      return;
+    }
+    if (!control.matches('a[href]')) return;
+    let destination;
+    try { destination = new URL(control.href, document.baseURI); } catch (_) { return; }
+    const host = destination.hostname.toLowerCase();
+    let platform = '';
+    if (host === 'youtube.com' || host === 'www.youtube.com' || host === 'youtu.be') platform = 'youtube';
+    else if (host === 'open.spotify.com') platform = 'spotify';
+    else if (host === 'www.tiktok.com' || host === 'tiktok.com') platform = 'tiktok';
+    else if (host === 'www.instagram.com' || host === 'instagram.com') platform = 'instagram';
+    else if (host === 'www.facebook.com' || host === 'facebook.com') platform = 'facebook';
+    if (!platform) return;
+    const section = control.closest('section');
+    report('kael_platform_click', {
+      platform: platform,
+      page_section: section ? section.id : 'other',
+      link_label: (control.getAttribute('aria-label') || control.textContent || '').trim().slice(0, 90),
+      interaction_type: 'outbound_link'
+    });
+  });
+})();
+</script>
+</body></html>
